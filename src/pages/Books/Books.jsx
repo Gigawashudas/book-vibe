@@ -13,9 +13,9 @@ const Books = ({ data }) => {
   //   }, []);
   return (
     <div className="max-w-6xl mx-auto">
-      <h1 className="text-[40px] font-bold text-center">Books</h1>
+      <h1 className="text-[40px] font-bold underline text-center">Books</h1>
       <Suspense fallback={<span>Loading........</span>}>
-        <div className="grid grid-cols-3 gap-6 mt-9 mb-32">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-6 mt-10 mb-32">
           {data.map((book) => (
             <Book key={book.bookId} book={book}></Book>
           ))}

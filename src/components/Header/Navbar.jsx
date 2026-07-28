@@ -1,17 +1,29 @@
 import React from "react";
+import { Link } from "react-router";
+import { HashLink } from "react-router-hash-link";
 
 const Navbar = () => {
   const links = (
     <>
-      <li className="text-[#23BE0A] btn border-[#23BE0A]">Home</li>
-      <li>Listed Books</li>
+      <Link to="/">
+        <li className="text-[#23BE0A] btn border-[#23BE0A]">Home</li>
+      </Link>
+
+      <Link to="/#books">
+        <li>Listed Books</li>
+      </Link>
+
       <li>Pages to Read</li>
+
+      <Link to="/about">
+        <li>About</li>
+      </Link>
     </>
   );
   return (
-    <div className="flex max-w-6xl mx-auto justify-between items-center py-5">
+    <div className="flex px-7 mx-auto justify-between shadow rounded items-center py-5">
       <div className="">
-        <a className="text-3xl font-bold">Boi Vive</a>
+        <a className="text-3xl font-bold">Boi Vibe</a>
       </div>
       <div>
         <ul className="flex gap-5 items-center">{links}</ul>
