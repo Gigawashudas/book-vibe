@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2'
+
 const getReadList = () => {
     const storedBookListSTR = localStorage.getItem("readList")
 
@@ -13,7 +15,12 @@ const addToReadList = (id) => {
     const readList = getReadList();
 
     if (readList.includes(id)) {
-        alert("already in the list!")
+        Swal.fire({
+            title: 'Already Added!',
+            text: 'Do you want to continue',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+        })
     } else {
         readList.push(id);
         const data = JSON.stringify(readList)
@@ -36,7 +43,12 @@ const addToWishList = (id) => {
     const wishList = getWishList();
 
     if (wishList.includes(id)) {
-        alert("already in the list!")
+        Swal.fire({
+            title: 'Already Added!',
+            text: 'Do you want to continue',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+        })
     } else {
         wishList.push(id);
         const data = JSON.stringify(wishList)

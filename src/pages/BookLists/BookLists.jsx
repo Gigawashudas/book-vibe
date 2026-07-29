@@ -25,12 +25,19 @@ const BookLists = () => {
     return list;
   })();
 
+  const sortedWishList = (() => {
+    const list = [...wishList];
+    if (sortType === "pages") return list.sort((a, b) => b.totalPages - a.totalPages);
+    if (sortType === "ratings") return list.sort((a, b) => b.rating - a.rating);
+    return list;
+  })();
+
   return (
     <div className="max-w-6xl mx-auto mb-10">
       <div className="flex flex-col gap-10 items-center">
         <h1 className="rounded-2xl w-6xl  py-9 text-center text-3xl font-bold bg-[#131313]/5">Books</h1>
         <details className="dropdown">
-          <summary className="btn m-1 bg-[#23BE0A] text-white font-normal">Sort By</summary>
+          <summary className="btn m-1 bg-[#23BE0A] text-white font-normal">Sort By {sortType ? ": " + sortType : ""}</summary>
           <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
             <li>
               <a onClick={() => handleSort("pages")}>Number of Pages</a>
@@ -56,7 +63,7 @@ const BookLists = () => {
         </TabPanel>
         <TabPanel>
           <div className="flex flex-col mt-5 gap-5">
-            {wishList.map((book) => (
+            {sortedWishList.map((book) => (
               <ListedBook key={book.bookId} book={book}></ListedBook>
             ))}
           </div>
