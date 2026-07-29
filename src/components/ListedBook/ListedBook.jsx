@@ -1,6 +1,7 @@
 import { CiLocationOn } from "react-icons/ci";
 import { GoPeople } from "react-icons/go";
 import { RiPagesLine } from "react-icons/ri";
+import { Link } from "react-router";
 
 const BookList = ({ book }) => {
   return (
@@ -37,7 +38,9 @@ const BookList = ({ book }) => {
         <div className="flex items-center gap-5">
           <span className="font-workSans bg-[#328EFF]/15 btn font-normal border-none rounded-4xl text-[#328EFF]">Category: {book.category}</span>
           <span className="bg-[#FFAC33]/15 btn border-none font-normal rounded-4xl text-[#FFAC33]">Rating: {book.rating}</span>
-          <button className="btn bg-[#23BE0A] rounded-4xl font-normal text-white">View Details</button>
+          <Link to={`/bookDetails/${book.bookId}`}>
+            <button className="btn bg-[#23BE0A] rounded-4xl font-normal text-white">View Details</button>
+          </Link>
         </div>
       </div>
     </div>
