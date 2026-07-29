@@ -1,6 +1,4 @@
-import React from "react";
 import { Link } from "react-router";
-import { HashLink } from "react-router-hash-link";
 
 const Navbar = () => {
   const links = (
@@ -13,6 +11,10 @@ const Navbar = () => {
         <li>Listed Books</li>
       </Link>
 
+      <Link to="/readList">
+        <li>Read List</li>
+      </Link>
+
       <li>Pages to Read</li>
 
       <Link to="/about">
@@ -21,7 +23,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="flex px-7 mx-auto justify-between shadow rounded items-center py-5">
+    <div className="flex px-9 mx-auto justify-between items-center py-12.5">
       <div className="">
         <a className="text-3xl font-bold">Boi Vibe</a>
       </div>
